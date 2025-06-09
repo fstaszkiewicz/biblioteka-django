@@ -123,9 +123,8 @@ Dzięki załadowaniu danych z pliku `initial_data.json`, system jest od razu got
     - Dostęp do strony ze statystykami (`/statystyki/`).
     - Korzystanie z niestandardowych akcji (np. w panelu "Wypożyczenia").
 
-### Strona dla Czytelników
+## Strona dla Czytelników
 Zaloguj się jako `anna@gmail.com` lub `piotr@gmail.com`, aby przetestować funkcje z perspektywy użytkownika. Można również zarejestrować zupełnie nowe konto na stronie `/rejestracja/`.
-Po stronie czytelnika można jedynie dokonywać rezerwacji.
 ---
 
 ## 🛠️ Dostępne Komendy Zarządzania
