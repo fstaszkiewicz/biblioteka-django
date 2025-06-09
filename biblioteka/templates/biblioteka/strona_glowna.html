@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biblioteka - Strona Główna</title>
+    <style>
+        body { font-family: sans-serif; padding: 2em; line-height: 1.6; color: #333; }
+        .user-info { float: right; }
+        .container { max-width: 960px; margin: 0 auto; }
+        .module { margin-top: 2em; padding: 1em; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; }
+        .module h3 { margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 0.5em; }
+        .notification { background-color: #fff3cd; border-color: #ffeeba; color: #856404; padding: 1em; border-radius: 5px; margin-bottom: 2em; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 8px; border-bottom: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            Witaj, {{ user.first_name }}!
+            <a href="{% url 'wyloguj' %}">Wyloguj się</a>
+        </div>
+
+        <h1>Witaj w bibliotece!</h1>
+
+        {% for powiadomienie in powiadomienia %}
+            <div class="notification">
+                <strong>Powiadomienie:</strong> Książka "<b>{{ powiadomienie.ksiazka.tytul }}</b>" czeka na Ciebie do odbioru! Odbierz ją do {{ powiadomienie.data_waznosci }}.
+            </div>
+        {% endfor %}
+
+        <div class="module">
+            <h3>Wyszukaj książkę</h3>
+            <form action="{% url 'wyszukaj' %}" method="get">
+                <input type="text" name="q" placeholder="Wpisz tytuł, autora lub ISBN..." style="width: 300px; padding: 8px;">
+                <button type="submit" style="padding: 8px 15px;">Szukaj</button>
+            </form>
+        </div>
+
+        <div class="module">
+            <h3>Moje wypożyczenia</h3>
+            {% if aktywne_wypozyczenia %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tytuł</th>
+                            <th>Termin zwrotu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for wypozyczenie in aktywne_wypozyczenia %}
+                            <tr>
+                                <td>{{ wypozyczenie.egzemplarz.ksiazka.tytul }}</td>
+                                <td>{{ wypozyczenie.data_planowanego_zwrotu }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>Nie masz aktualnie żadnych wypożyczonych książek.</p>
+            {% endif %}
+        </div>
+
+        <div class="module">
+            <h3>Moje rezerwacje</h3>
+            {% if oczekujace_rezerwacje %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tytuł</th>
+                            <th>Data rezerwacji</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rezerwacja in oczekujace_rezerwacje %}
+                            <tr>
+                                <td>{{ rezerwacja.ksiazka.tytul }}</td>
+                                <td>{{ rezerwacja.data_utworzenia|date:"Y-m-d" }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>Nie masz aktualnie żadnych oczekujących rezerwacji.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+    {# Najpierw dodajemy nasz niestandardowy panel ze statystykami #}
+    <div id="content-main">
+        <div class="app-biblioteka module">
+            <table>
+            <caption>
+                <a href="{% url 'statystyki' %}" class="section" title="Raporty i Statystyki">Raporty i Statystyki</a>
+            </caption>
+            <tbody>
+                <tr class="model-statystyki">
+                    <th scope="row"><a href="{% url 'statystyki' %}">Statystyki ogólne</a></th>
+                    <td><a href="{% url 'statystyki' %}" class="addlink">Wyświetl</a></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+    {# A następnie dołączamy całą oryginalną zawartość strony głównej #}
+    {{ block.super }}
+{% endblock %}
+

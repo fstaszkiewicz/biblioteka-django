@@ -1,0 +1,29 @@
+# Pliki systemowe i IDE
+*.swp
+*~
+.DS_Store
+.idea/
+.vscode/
+
+# Środowisko wirtualne
+.venv/
+venv/
+env/
+
+# Pliki cache Pythona
+__pycache__/
+*.pyc
+*.pyo
+
+# Pliki generowane przez Django i pliki lokalne
+*.log
+db.sqlite3
+local_settings.py
+.env
+
+# Folder z wygenerowanymi raportami
+/raporty/
+
+# Foldery na media i pliki statyczne (jeśli generowane)
+/media/
+/static/

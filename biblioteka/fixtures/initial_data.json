@@ -1,0 +1,143 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$bZOLtaAhhUCcHwcbCJdEUp$Pl9o7bP+szDqcIIogocDDqf/Eo79aYgM63uUaSTxtn4=",
+    "last_login": "2025-06-09T15:00:00Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Admin",
+    "last_name": "Systemu",
+    "email": "admin@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-04-01T10:00:00Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$lbMLHDvPiFuHqeppJml3Tm$aD0/csvRYi9tfkEotAGWUJIVTTgmdgsP7xyR3DjJV5I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "anna@gmail.com",
+    "first_name": "Anna",
+    "last_name": "Nowak",
+    "email": "anna@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-01T10:01:00Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$U7ZTpc2ByHn6Ml1KIdjSqt$CzCWcyW6n+/SKTE7QjWrZQoJlJ6A5xXlMzm33B/PsdM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "piotr@gmail.com",
+    "first_name": "Piotr",
+    "last_name": "Zieliński",
+    "email": "piotr@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-01T10:02:00Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$abcdef123456$aD0/csvRYi9tfkEotAGWUJIVTTgmdgsP7xyR3DjJV5I=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "jan@gmail.com",
+        "first_name": "Jan",
+        "last_name": "Kowalski",
+        "email": "jan@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-02T11:00:00Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+  "model": "biblioteka.ksiazka",
+  "pk": 1,
+  "fields": { "data_utworzenia": "2025-04-02T12:00:00Z", "data_modyfikacji": "2025-04-02T12:00:00Z", "tytul": "Solaris", "autor": "Stanisław Lem", "kategoria": "Science Fiction", "rok_wydania": 1961, "isbn": "9788308075197" }
+},
+{
+  "model": "biblioteka.ksiazka",
+  "pk": 2,
+  "fields": { "data_utworzenia": "2025-04-02T12:01:00Z", "data_modyfikacji": "2025-04-02T12:01:00Z", "tytul": "Niezwyciężony", "autor": "Stanisław Lem", "kategoria": "Science Fiction", "rok_wydania": 1964, "isbn": "9788308085011" }
+},
+{
+  "model": "biblioteka.ksiazka",
+  "pk": 3,
+  "fields": { "data_utworzenia": "2025-04-02T12:02:00Z", "data_modyfikacji": "2025-04-02T12:02:00Z", "tytul": "Władca Pierścieni: Drużyna Pierścienia", "autor": "John Ronald Reuel Tolkien", "kategoria": "Fantasy", "rok_wydania": 2001, "isbn": "9788371508218" }
+},
+{
+  "model": "biblioteka.ksiazka",
+  "pk": 4,
+  "fields": { "data_utworzenia": "2025-04-02T12:03:00Z", "data_modyfikacji": "2025-04-02T12:03:00Z", "tytul": "Sapiens. Od zwierząt do bogów", "autor": "Yuval Noah Harari", "kategoria": "Popularnonaukowa", "rok_wydania": 2018, "isbn": "9788308064955" }
+},
+{
+  "model": "biblioteka.czytelnik",
+  "pk": 1,
+  "fields": { "data_utworzenia": "2025-04-01T10:01:00Z", "data_modyfikacji": "2025-04-01T10:01:00Z", "user": 2, "numer_karty_bibliotecznej": "KARTA001", "limit_wypozyczen": 5 }
+},
+{
+  "model": "biblioteka.czytelnik",
+  "pk": 2,
+  "fields": { "data_utworzenia": "2025-04-01T10:02:00Z", "data_modyfikacji": "2025-04-01T10:02:00Z", "user": 3, "numer_karty_bibliotecznej": "KARTA002", "limit_wypozyczen": 5 }
+},
+{
+    "model": "biblioteka.czytelnik",
+    "pk": 3,
+    "fields": { "data_utworzenia": "2025-04-02T11:00:00Z", "data_modyfikacji": "2025-04-02T11:00:00Z", "user": 4, "numer_karty_bibliotecznej": "KARTA003", "limit_wypozyczen": 3 }
+},
+{ "model": "biblioteka.egzemplarz", "pk": 1, "fields": { "data_utworzenia": "2025-04-03T10:00:00Z", "data_modyfikacji": "2025-05-10T09:00:00Z", "ksiazka": 1, "numer_inwentarzowy": "SOL001", "status": "wypozyczony" }},
+{ "model": "biblioteka.egzemplarz", "pk": 2, "fields": { "data_utworzenia": "2025-04-03T10:01:00Z", "data_modyfikacji": "2025-05-28T09:00:00Z", "ksiazka": 1, "numer_inwentarzowy": "SOL002", "status": "dostepny" }},
+{ "model": "biblioteka.egzemplarz", "pk": 3, "fields": { "data_utworzenia": "2025-04-03T10:02:00Z", "data_modyfikacji": "2025-06-01T09:00:00Z", "ksiazka": 2, "numer_inwentarzowy": "NIE001", "status": "wypozyczony" }},
+{ "model": "biblioteka.egzemplarz", "pk": 4, "fields": { "data_utworzenia": "2025-04-03T10:03:00Z", "data_modyfikacji": "2025-05-27T09:00:00Z", "ksiazka": 3, "numer_inwentarzowy": "WLA001", "status": "wypozyczony" }},
+{ "model": "biblioteka.egzemplarz", "pk": 5, "fields": { "data_utworzenia": "2025-04-03T10:04:00Z", "data_modyfikacji": "2025-06-03T09:00:00Z", "ksiazka": 3, "numer_inwentarzowy": "WLA002", "status": "dostepny" }},
+{ "model": "biblioteka.egzemplarz", "pk": 6, "fields": { "data_utworzenia": "2025-04-03T10:05:00Z", "data_modyfikacji": "2025-04-25T09:00:00Z", "ksiazka": 4, "numer_inwentarzowy": "SAP001", "status": "dostepny" }},
+{ "model": "biblioteka.egzemplarz", "pk": 7, "fields": { "data_utworzenia": "2025-04-03T10:06:00Z", "data_modyfikacji": "2025-06-02T09:00:00Z", "ksiazka": 4, "numer_inwentarzowy": "SAP002", "status": "oczekuje_na_odbior" }},
+{
+  "model": "biblioteka.wypozyczenie", "pk": 1, "fields": { "data_utworzenia": "2025-06-01T09:00:00Z", "data_modyfikacji": "2025-06-01T09:00:00Z", "egzemplarz": 3, "czytelnik": 1, "data_wypozyczenia": "2025-06-01", "data_planowanego_zwrotu": "2025-06-15", "data_rzeczywistego_zwrotu": null }
+},
+{
+  "model": "biblioteka.wypozyczenie", "pk": 2, "fields": { "data_utworzenia": "2025-05-27T09:00:00Z", "data_modyfikacji": "2025-05-27T09:00:00Z", "egzemplarz": 4, "czytelnik": 2, "data_wypozyczenia": "2025-05-27", "data_planowanego_zwrotu": "2025-06-10", "data_rzeczywistego_zwrotu": null }
+},
+{
+  "model": "biblioteka.wypozyczenie", "pk": 3, "fields": { "data_utworzenia": "2025-05-10T09:00:00Z", "data_modyfikacji": "2025-05-10T09:00:00Z", "egzemplarz": 1, "czytelnik": 3, "data_wypozyczenia": "2025-05-10", "data_planowanego_zwrotu": "2025-05-24", "data_rzeczywistego_zwrotu": null }
+},
+{
+  "model": "biblioteka.wypozyczenie", "pk": 4, "fields": { "data_utworzenia": "2025-04-05T09:00:00Z", "data_modyfikacji": "2025-04-18T09:00:00Z", "egzemplarz": 5, "czytelnik": 1, "data_wypozyczenia": "2025-04-05", "data_planowanego_zwrotu": "2025-04-19", "data_rzeczywistego_zwrotu": "2025-04-18" }
+},
+{
+  "model": "biblioteka.wypozyczenie", "pk": 5, "fields": { "data_utworzenia": "2025-04-10T09:00:00Z", "data_modyfikacji": "2025-04-25T09:00:00Z", "egzemplarz": 6, "czytelnik": 2, "data_wypozyczenia": "2025-04-10", "data_planowanego_zwrotu": "2025-04-24", "data_rzeczywistego_zwrotu": "2025-04-25", "oplata_za_przetrzymanie": "0.50" }
+},
+{
+  "model": "biblioteka.wypozyczenie", "pk": 6, "fields": { "data_utworzenia": "2025-05-15T09:00:00Z", "data_modyfikacji": "2025-05-28T09:00:00Z", "egzemplarz": 2, "czytelnik": 2, "data_wypozyczenia": "2025-05-15", "data_planowanego_zwrotu": "2025-05-29", "data_rzeczywistego_zwrotu": "2025-05-28" }
+},
+{
+  "model": "biblioteka.wypozyczenie", "pk": 7, "fields": { "data_utworzenia": "2025-05-20T09:00:00Z", "data_modyfikacji": "2025-06-03T09:00:00Z", "egzemplarz": 5, "czytelnik": 3, "data_wypozyczenia": "2025-05-20", "data_planowanego_zwrotu": "2025-06-03", "data_rzeczywistego_zwrotu": "2025-06-03" }
+},
+{
+  "model": "biblioteka.rezerwacja", "pk": 1, "fields": { "data_utworzenia": "2025-06-08T10:00:00Z", "data_modyfikacji": "2025-06-08T10:00:00Z", "ksiazka": 2, "czytelnik": 2, "status": "oczekujaca" }
+},
+{
+  "model": "biblioteka.rezerwacja", "pk": 2, "fields": { "data_utworzenia": "2025-06-02T09:00:00Z", "data_modyfikacji": "2025-06-02T09:00:00Z", "ksiazka": 4, "czytelnik": 1, "status": "gotowa_do_odbioru", "data_waznosci": "2025-06-05" }
+}
+]

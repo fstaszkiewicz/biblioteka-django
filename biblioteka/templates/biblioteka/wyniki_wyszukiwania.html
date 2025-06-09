@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <style>
+        body { font-family: sans-serif; padding: 2em; line-height: 1.6; }
+        .user-info { float: right; }
+        .book-result { border-bottom: 1px solid #ccc; padding: 1em 0; }
+        .book-result:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+    <div class="user-info">
+        Witaj, {{ user.first_name }}!
+        <a href="{% url 'logout' %}">Wyloguj się</a>
+    </div>
+
+    <a href="{% url 'strona-glowna' %}">&larr; Wróć do strony głównej</a>
+
+    <h1>{{ title }}</h1>
+
+    {% if query %}
+        {% for ksiazka in wyniki %}
+            <div class="book-result">
+                <h3>{{ ksiazka.tytul }}</h3>
+                <p><strong>Autor:</strong> {{ ksiazka.autor }}</p>
+                <p><strong>Kategoria:</strong> {{ ksiazka.kategoria }}</p>
+                <p><strong>ISBN:</strong> {{ ksiazka.isbn }}</p>
+
+                <hr>
+
+                <p><strong>Dostępność:</strong>
+                    {% if ksiazka.dostepne_egzemplarze_count > 0 %}
+                        <span style="color: green;">Dostępna ({{ ksiazka.dostepne_egzemplarze_count }} szt.)</span>
+                    {% else %}
+                        <span style="color: orange;">Obecnie wypożyczona</span><br>
+                        {% if ksiazka.najwczesniejszy_zwrot %}
+                            <small>Najwcześniejszy spodziewany termin zwrotu: <strong>{{ ksiazka.najwczesniejszy_zwrot }}</strong></small>
+                        {% endif %}
+                    {% endif %}
+                </p>
+
+                {# Logika przycisku akcji #}
+                {% if ksiazka.ma_juz_rezerwacje %}
+                    <p><button disabled>Masz już rezerwację</button></p>
+                {% elif ksiazka.dostepne_egzemplarze_count > 0 %}
+                    <p><button disabled>Dostępna na miejscu</button></p>
+                {% else %}
+                    {# Na razie przycisk nic nie robi, w następnym kroku dodamy mu funkcjonalność #}
+                    <p><a href="{% url 'rezerwuj' ksiazka.id %}"><button style="background-color: #ffc107; color: black;">Rezerwuj</button></a></p>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>Nie znaleziono żadnych książek pasujących do Twojego zapytania.</p>
+        {% endfor %}
+    {% else %}
+        <p>Proszę wpisać frazę w wyszukiwarce na stronie głównej.</p>
+    {% endif %}
+
+</body>
+</html>

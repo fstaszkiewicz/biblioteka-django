@@ -1,0 +1,27 @@
+{% extends "admin/base_site.html" %} <!-- To sprawia, że nasza strona wygląda jak reszta panelu admina – dziedziczy po jego głównym szablonie. -->
+{% block title %} {{ title }} | Statystyki {% endblock %} <!--  W ten sposób wyświetlamy dane, które przekazaliśmy z naszego widoku w context. -->
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Panel Administratora</a></h1>
+{% endblock %}
+{% block nav-global %}{% endblock %}
+
+{% block content %}
+
+<div class="main" id="changelist">
+    <h2>Podstawowe dane</h2>
+    <ul>
+        <li>Całkowita liczba tytułów książek: <strong>{{ liczba_ksiazek }}</strong></li>
+        <li>Całkowita liczba egzemplarzy: <strong>{{ liczba_egzemplarzy }}</strong></li>
+        <li>Zarejestrowani czytelnicy: <strong>{{ liczba_czytelnikow }}</strong></li>
+    </ul>
+
+    <h2>Najpopularniejsze książki (TOP 5)</h2>
+    <ol>
+        {% for ksiazka in najpopularniejsze_ksiazki %} <!-- To pętla, która przechodzi po liście najpopularniejszych książek i wyświetla je. -->
+            <li>{{ ksiazka.egzemplarz__ksiazka__tytul }} (wypożyczona {{ ksiazka.liczba_wypozyczen }} razy)</li>
+        {% empty %}
+            <li>Brak danych o wypożyczeniach.</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}

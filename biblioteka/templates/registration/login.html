@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logowanie do Biblioteki</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background-color: #f0f0f0; margin: 0; padding: 20px 0; }
+        form { padding: 2em; background: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { text-align: center; }
+        form p { margin-bottom: 1em; }
+        form p label { display: block; margin-bottom: 5px; font-weight: bold; }
+        form p input { display: block; width: 100%; padding: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer; border-radius: 3px; }
+        ul.errorlist { list-style: none; padding: 0; margin: 0 0 10px 0; color: red; font-size: 0.9em; }
+        .login-link { margin-top: 15px; text-align: center; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <form method="post" novalidate>
+        <h2>Logowanie do Biblioteki</h2>
+        {% csrf_token %}
+
+        {# Wyświetlanie ogólnych błędów formularza (np. "błędny login lub hasło") #}
+        {% if form.non_field_errors %}
+            <ul class="errorlist">
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {# Ręczne renderowanie pola 'username' ze zmienioną etykietą #}
+        <p>
+            <label for="{{ form.username.id_for_label }}">Email</label>
+            {{ form.username }}
+            {% if form.username.errors %}<ul class="errorlist">{% for error in form.username.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+        </p>
+
+        {# Ręczne renderowanie pola 'password' #}
+        <p>
+            <label for="{{ form.password.id_for_label }}">Hasło</label>
+            {{ form.password }}
+            {% if form.password.errors %}<ul class="errorlist">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+        </p>
+
+        <button type="submit">Zaloguj się</button>
+    </form>
+
+    <div class="login-link">
+        Nie masz jeszcze konta? <a href="{% url 'rejestracja' %}">Zarejestruj się</a>.
+    </div>
+</body>
+</html>
