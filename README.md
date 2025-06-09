@@ -123,8 +123,16 @@ Dzięki załadowaniu danych z pliku `initial_data.json`, system jest od razu got
     - Dostęp do strony ze statystykami (`/statystyki/`).
     - Korzystanie z niestandardowych akcji (np. w panelu "Wypożyczenia").
 
-## Strona dla Czytelników
-Zaloguj się jako `anna@gmail.com` lub `piotr@gmail.com`, aby przetestować funkcje z perspektywy użytkownika. Można również zarejestrować zupełnie nowe konto na stronie `/rejestracja/`.
+### Strona dla Czytelników
+
+Aby przetestować aplikację z perspektywy zwykłego użytkownika, masz dwie możliwości:
+
+* **Logowanie na konto testowe:** Użyj danych jednego z czytelników, aby zobaczyć panel z historią wypożyczeń i rezerwacji.
+    * **Użytkownik:** `anna@gmail.com` (hasło: `password123`)
+    * **Użytkownik:** `piotr@gmail.com` (hasło: `password123`)
+
+* **Rejestracja nowego konta:** Wejdź na stronę `/rejestracja/`, aby samodzielnie założyć konto i przetestować system od zera.
+
 ---
 
 ## 🛠️ Dostępne Komendy Zarządzania
