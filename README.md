@@ -110,8 +110,8 @@ Dzięki załadowaniu danych z pliku `initial_data.json`, system jest od razu got
 | Rola | Nazwa użytkownika / E-mail | Hasło |
 | :--- | :--- | :--- |
 | **Administrator** | `admin` | `admin` |
-| **Czytelnik 1** | `anna@gmail.com` | `password123` |
-| **Czytelnik 2** | `piotr@gmail.com` | `password123` |
+| **Czytelnik 1** | `anna@gmail.com` | `testpassword123` |
+| **Czytelnik 2** | `piotr@gmail.com` | `testpassword123` |
 
 > **Uwaga:** Hasła w pliku `initial_data.json` są zahashowane. Powyższe hasła zostały ustawione w pliku dla uproszczenia testów. Jeśli wystąpi problem z logowaniem, możesz zresetować hasło dla danego użytkownika za pomocą komendy `python manage.py changepassword <nazwa_uzytkownika>`.
 
