@@ -84,7 +84,7 @@ Aby uruchomić projekt lokalnie, postępuj zgodnie z poniższymi krokami:
 
 4.  **Zastosuj migracje**, aby stworzyć strukturę bazy danych:
     ```bash
-   python manage.py makemigrations biblioteka
+    python manage.py migrate
     ```
     ```bash
     python manage.py migrate
